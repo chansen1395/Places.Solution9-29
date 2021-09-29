@@ -1,21 +1,21 @@
 using System.Collections.Generic;
 
-namespace ToDoList.Models
+namespace Places.Models
 {
-    public class Item
+    public class Location
     {
-        public string Description { get; set; }
+        public string CityName { get; set; }
         public int Id { get; }
-        private static List<Item> _instances = new List<Item> { };
+        private static List<Location> _instances = new List<Location> { };
 
-        public Item(string description)
+        public Location(string cityName)
         {
-            Description = description;
+            CityName = cityName;
             _instances.Add(this);
             Id = _instances.Count;
         }
 
-        public static List<Item> GetAll()
+        public static List<Location> GetAll()
         {
             return _instances;
         }
@@ -25,7 +25,7 @@ namespace ToDoList.Models
             _instances.Clear();
         }
 
-        public static Item Find(int searchId)
+        public static Location Find(int searchId)
         {
             return _instances[searchId - 1];
         }
